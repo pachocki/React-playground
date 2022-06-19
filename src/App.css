@@ -1,38 +1,195 @@
-.App {
-  text-align: center;
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  font-family: "Helvetica Neue",Helvetica,Arial;
+  height:100vh;
+  overflow:hidden;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1{
+  font-size: 5em;
+    color: #01060678;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+p{
+  padding-bottom:1em;
+  font-size:1.6em;
+}
+.logo{
+  width:60px;
+}
+.gradient-background {
+  background: linear-gradient(120deg,#87afa1,#d4b7e9,#c6d9fb,#f8e6bc,#c6fcc1);
+  background-size: 300% 300%;
+  animation: gradient-animation 35s ease infinite;
+}
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    gap:20px;
+    max-width:1100px;
+    margin:0 auto;
+  
+    
+}
+.counter-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:50%;
+    width:50%;
+    margin:2em;
+    border-radius:10px;
+    background: #efeeee73;
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.timer-app{
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  max-width: 600px;
+  height: 70%;
+  margin: 1em;
+  padding: 1em;
+  box-shadow: 0 8px 32px 0 rgb(31 38 135 / 37%);
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  border-radius:10px;
+  
+}
+.display{
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  width:200px;
+  height:200px;
+  border:none;
+  border-radius:50%;
+  transition:all 0.3s ease-in;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.1),
+    -10px -10px 10px rgba(0, 0, 0, 0.06);
+}
+.counter , .time{
+  font-size:4em;
+  font-weight:bold;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.button {
+  align-items: center;
+  appearance: none;
+  background-color: #000;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Roboto",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.button:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+.button-box{
+  display:flex;
+  gap:1em;
+  padding-top:2em;
+}
+.timer-btn{
+ 
+    display:grid;
+    place-items:center;
+    cursor:pointer;
+    padding:2rem;
+    background:#efeeee00;
+    border:none;
+    border-radius:50%;
+    transition:all 0.3s ease-in;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.1),
+      -10px -10px 10px rgba(0,0,0,0.06);
   }
-  to {
-    transform: rotate(360deg);
+
+  .timer-btn:active{
+    box-shadow: inset 10px 10px 10px rgba(0,0,0,0.1),
+      inset -10px -10px 10px rgba(255,255,255,0.6);
+  }
+  .timer-btn:active .fa{
+    color:gray;
+  }
+  .timer-btn .fa{
+    display:grid;
+    place-items:center;
+    font-size:2rem;
+    color:#b709ff;
+  }
+  .timer-button-box{
+    display:flex;
+    gap:1em;
+    padding-top:4em;
+  }
+  .time{
+    font-size:4em;
+    font-weight:bold;
+    color:#b709ff;
+  }
+  .top-row{
+    position:absolute;
+    top:10%;
+    
+  }
+  
+ 
+
+
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
